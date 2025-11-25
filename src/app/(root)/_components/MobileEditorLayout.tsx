@@ -23,9 +23,9 @@ export default function MobileEditorLayout() {
   }
 
   return (
-    <div className="md:hidden block w-full h-screen bg-[#0f0f17]">
+    <div className="md:hidden z-0 block rounded-lg w-full h-screen bg-[#0f0f17]">
       {/* Tabs */}
-      <div className="sticky top-0 z-20 flex items-center justify-between bg-[#1b1b27] px-4 py-3 shadow-lg border-b border-white/10">
+      <div className="sticky rounded top-0 z-20 flex items-center justify-between bg-[#1b1b27] px-4 py-3 shadow-lg border-b border-white/10">
         <div className="flex gap-3">
           <button
             onClick={() => setActiveTab("editor")}
@@ -36,7 +36,7 @@ export default function MobileEditorLayout() {
             }`}
           >
             <Code2 size={18} />
-            Editor
+            
           </button>
 
           <button
@@ -48,7 +48,6 @@ export default function MobileEditorLayout() {
             }`}
           >
             <Terminal size={18} />
-            Output
           </button>
         </div>
 
@@ -78,7 +77,7 @@ export default function MobileEditorLayout() {
               </span>
             </motion.button>
           </div>
-          <div onClick={() => setActiveTab("output")}>
+          <div onClick={() => setTimeout(() => setActiveTab("output"), 1000)}>
             <RunButton />
           </div>
         </div>
