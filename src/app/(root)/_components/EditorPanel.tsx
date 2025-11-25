@@ -19,7 +19,7 @@ import ShareSnippetDialog from "./ShareSnippetDialog";
 import { ConvexHttpClient } from "convex/browser";
 import RunButton from "./RunButton";
 
-function EditorPanel() {
+function EditorPanel({controller}: {controller?: Boolean}) {
   const clerk = useClerk();
   const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
   const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
@@ -59,9 +59,9 @@ function EditorPanel() {
 
   return (
     <div className="relative">
-      <div className="relative bg-[#12121a]/90 backdrop-blur rounded-xl border border-white/[0.05] p-6">
+      <div className="relative bg-[#12121a]/90 backdrop-blur rounded-xl border border-white/[0.05] md:p-6">
         {/* Header */}
-        <div className="flex items-center justify-between mb-4">
+        {controller && <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#1e1e2e] ring-1 ring-white/5">
               <Image
@@ -129,10 +129,11 @@ function EditorPanel() {
               </span>
             </motion.button>
           </div>
-        </div>
+        </div>}
 
         {/* Editor  */}
-        <div className="relative group rounded-xl overflow-hidden ring-1 ring-white/[0.05]">
+        <div className={"relative group overflow-hidden ring-1 ring-white/[0.05]" + (controller ? "rounded-xl" : ""
+        )}>
           {clerk.loaded && (
             <Editor
               height="600px"
@@ -154,6 +155,8 @@ function EditorPanel() {
                 smoothScrolling: true,
                 contextmenu: true,
                 renderLineHighlight: "all",
+                lineNumbersMinChars: 2,
+                lineDecorationsWidth: 3,
                 lineHeight: 1.6,
                 letterSpacing: 0.5,
                 roundedSelection: true,
