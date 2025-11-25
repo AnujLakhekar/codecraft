@@ -66,7 +66,7 @@ function RunButton() {
               <Loader2 className="w-4 h-4 animate-spin text-black/70" />
               <div className="absolute inset-0 blur animate-pulse" />
             </div>
-            <span className="text-sm font-medium text-white/90">
+            <span className="md:block hidden text-sm font-medium text-white/90">
               Executing...
             </span>
           </>
