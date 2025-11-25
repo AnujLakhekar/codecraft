@@ -60,7 +60,7 @@ async function Header() {
                 className="text-sm font-medium relative z-10 group-hover:text-white
                  transition-colors"
               >
-                Snippets
+                <p className="md:block hidden">Snippets</p>
               </span>
             </Link>
           </nav>

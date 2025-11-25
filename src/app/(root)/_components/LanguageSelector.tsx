@@ -63,7 +63,7 @@ function LanguageSelector({ hasAccess }: { hasAccess: boolean }) {
           />
         </div>
 
-        <span className="text-gray-200 min-w-[80px] text-left group-hover:text-white transition-colors">
+        <span className="md:block hidden text-gray-200 md:min-w-[80px] text-left group-hover:text-white transition-colors">
           {currentLanguageObj.label}
         </span>
 

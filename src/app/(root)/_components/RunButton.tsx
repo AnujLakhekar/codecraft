@@ -1,6 +1,9 @@
 "use client";
 
-import { getExecutionResult, useCodeEditorStore } from "@/store/useCodeEditorStore";
+import {
+  getExecutionResult,
+  useCodeEditorStore,
+} from "@/store/useCodeEditorStore";
 import { useUser } from "@clerk/nextjs";
 import { useMutation } from "convex/react";
 import { motion } from "framer-motion";
@@ -16,6 +19,7 @@ function RunButton() {
   const handleRun = async () => {
     await runCode();
     const result = getExecutionResult();
+    ScrollOnRun();
 
     if (user && result) {
       await saveExecution({
@@ -26,6 +30,19 @@ function RunButton() {
       });
     }
   };
+
+  function ScrollOnRun() {
+    const el = document.getElementById("output-panel");
+    if (!el) {
+      console.warn("output-panel not found yet");
+      return;
+    }
+
+    window.scrollTo({
+      top: el.offsetTop,
+      behavior: "smooth",
+    });
+  }
 
   return (
     <motion.button
@@ -49,14 +66,16 @@ function RunButton() {
               <Loader2 className="w-4 h-4 animate-spin text-black/70" />
               <div className="absolute inset-0 blur animate-pulse" />
             </div>
-            <span className="text-sm font-medium text-white/90">Executing...</span>
+            <span className="text-sm font-medium text-white/90">
+              Executing...
+            </span>
           </>
         ) : (
           <>
             <div className="relative flex items-center justify-center w-4 h-4">
               <Play className="w-4 h-4 text-black/90 transition-transform group-hover:scale-110 group-hover:text-black" />
             </div>
-            <span className="text-sm font-medium text-black/90 group-hover:text-black">
+            <span className="md:block hidden text-sm font-medium text-black/90 group-hover:text-black">
               Run Code
             </span>
           </>

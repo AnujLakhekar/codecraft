@@ -63,7 +63,7 @@ function EditorPanel() {
           </div>
           <div className="flex items-center gap-3">
             {/* Font Size Slider */}
-            <div className="flex items-center gap-3 px-3 py-2 bg-[#1e1e2e] rounded-lg ring-1 ring-white/5">
+            <div className="md:flex hidden items-center gap-3 px-3 py-2 bg-[#1e1e2e] rounded-lg ring-1 ring-white/5">
               <TypeIcon className="size-4 text-gray-400" />
               <div className="flex items-center gap-3">
                 <input
@@ -99,7 +99,7 @@ function EditorPanel() {
                bg-yellow-400  opacity-90 hover:opacity-100 transition-opacity"
             >
               <ShareIcon className="size-4 text-yellow-800" />
-              <span className="text-sm font-medium text-yellow-800">Share</span>
+              <span className="md:block hidden text-sm font-medium text-yellow-800">Share</span>
             </motion.button>
           </div>
         </div>
