@@ -82,7 +82,12 @@ export default function UserProfileButton() {
   );
 }
 
-function MenuItem({ href, children }: any) {
+interface MenuItemProps {
+  href: string;
+  children: React.ReactNode;
+}
+
+function MenuItem({ href, children }: MenuItemProps) {
   return (
     <Link
       href={href}
