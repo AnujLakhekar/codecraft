@@ -19,7 +19,7 @@ import ShareSnippetDialog from "./ShareSnippetDialog";
 import { ConvexHttpClient } from "convex/browser";
 import RunButton from "./RunButton";
 
-function EditorPanel({controller}: {controller?: Boolean}) {
+function EditorPanel({controller}: {controller?: boolean}) {
   const clerk = useClerk();
   const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
   const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
