@@ -87,7 +87,9 @@ async function Header() {
           )}
 
           <SignedIn>
-            <RunButton />
+            <div className="md:block hidden">
+              <RunButton />
+            </div>
           </SignedIn>
 
           <div className="pl-3 border-l border-gray-800">

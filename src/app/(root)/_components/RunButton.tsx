@@ -51,7 +51,7 @@ function RunButton() {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className={`
-        group relative inline-flex items-center gap-2.5 px-5 py-2.5
+        group  relative inline-flex items-center gap-2.5 px-5 py-2.5
         disabled:cursor-not-allowed
         focus:outline-none
       `}
